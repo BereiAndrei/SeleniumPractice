@@ -1,5 +1,6 @@
 package Teste;
 
+import Base.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
@@ -16,18 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class AlertsTest {
-    public WebDriver driver;
+public class AlertsTest extends BaseTest {
+
     @Test
-
     public void Alerts() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("http://demo.automationtesting.in/Register.html");
-        driver.manage().window().maximize();
-
-
-
 
         WebElement SwitchToMenuWeb= driver.findElement(By.xpath("//a[contains(text(),'Switch')]"));
         Actions Action=new Actions(driver);

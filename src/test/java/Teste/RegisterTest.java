@@ -1,5 +1,6 @@
 package Teste;
 
+import Base.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -10,14 +11,13 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class RegisterTest {
+public class RegisterTest{
 
 
     //declaram o variabila WebDriver
     public WebDriver driver;
 
     @Test
-
     public void Register(){
         //setam driver-ul de Chrome
         System.setProperty("webdriver.chrome.driver","C:\\Automation\\chromedriver.exe");

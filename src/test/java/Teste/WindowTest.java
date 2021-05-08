@@ -1,5 +1,6 @@
 package Teste;
 
+import Base.BaseTest;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,17 +11,11 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WindowTest {
+public class WindowTest extends BaseTest {
 
-    public WebDriver driver;
 
     @Test
-    public void Alerts() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("http://demo.automationtesting.in/Register.html");
-        driver.manage().window().maximize();
-
+    public void Windows() {
 
         WebElement SwitchToMenuWeb= driver.findElement(By.xpath("//a[contains(text(),'Switch')]"));
         Actions Action=new Actions(driver);
@@ -68,6 +63,9 @@ public class WindowTest {
         System.out.println("Titlul noii pagini este" +driver.getTitle());
         driver.close();
         driver.switchTo().window(OpenMultiple.get(1));
+        System.out.println("Titlul noii pagini este" +driver.getTitle());
+        driver.close();
+        driver.switchTo().window(OpenMultiple.get(0));
         System.out.println("Titlul noii pagini este" +driver.getTitle());
         driver.close();
 
