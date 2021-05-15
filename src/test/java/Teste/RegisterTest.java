@@ -1,24 +1,29 @@
 package Teste;
 
 import Base.BaseTest;
+import Help.ElementMethods;
+import Help.PageMethod;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class RegisterTest{
+public class RegisterTest extends BaseTest{
+
+        ElementMethods elementMethods;
+        PageMethod pageMethod;
 
 
-    //declaram o variabila WebDriver
-    public WebDriver driver;
+
 
     @Test
     public void Register(){
+        elementMethods=new ElementMethods(driver);
+        pageMethod=new PageMethod(driver);
+
         //setam driver-ul de Chrome
         System.setProperty("webdriver.chrome.driver","C:\\Automation\\chromedriver.exe");
         //deschidem un browser de chrome
@@ -35,15 +40,15 @@ public class RegisterTest{
         //2.specific actiunea
         WebElement FirstNameWeb= driver.findElement(By.xpath("//input[@placeholder='First Name']"));
         String FirstNameValue="Andrei";
-        FirstNameWeb.sendKeys(FirstNameValue);
+        elementMethods.FillElement(FirstNameWeb,FirstNameValue);
 
         WebElement LastNameWeb= driver.findElement(By.xpath("//input[@placeholder='Last Name']"));
         String LastNameValue="Berei";
-        LastNameWeb.sendKeys(LastNameValue);
+        elementMethods.FillElement(LastNameWeb,LastNameValue);
 
         WebElement AdressWeb=driver.findElement(By.xpath("//textarea[@ng-model='Adress']"));
         String AdressValue="Floresti strada Porii";
-        AdressWeb.sendKeys(AdressValue);
+        elementMethods.FillElement(AdressWeb,AdressValue);
 
         WebElement EmailWeb= driver.findElement(By.xpath("//input[@type='email']"));
         String EmailValue="berei.andrei@yahoo.com";
@@ -64,30 +69,25 @@ public class RegisterTest{
 
         WebElement SkillWeb=driver.findElement(By.id("Skills"));
         String SkillValue="Java";
-        Select SkillSelect=new Select(SkillWeb);
-        SkillSelect.selectByVisibleText(SkillValue);
+        elementMethods.SelectElementByText(SkillWeb,SkillValue);
 
 
         WebElement CountriesWeb=driver.findElement(By.id("countries"));
         String CountriesValue="South Africa";
-        Select CountriesSelect=new Select(CountriesWeb);
-        CountriesSelect.selectByVisibleText(CountriesValue);
+        elementMethods.SelectElementByText(CountriesWeb,CountriesValue);
 
 
         WebElement YearWeb=driver.findElement(By.id("yearbox"));
         String YearValue="1988";
-        Select YearSelect=new Select(YearWeb);
-        YearSelect.selectByValue(YearValue);
+        elementMethods.SelectElementByValue(YearWeb,YearValue);
 
         WebElement MonthWeb=driver.findElement(By.xpath("//select[@placeholder='Month']"));
         String MonthValue="October";
-        Select MonthSelect=new Select(MonthWeb);
-        MonthSelect.selectByValue(MonthValue);
+        elementMethods.SelectElementByText(MonthWeb,MonthValue);
 
         WebElement DayWeb=driver.findElement(By.id("daybox"));
         String DayValue="6";
-        Select DaySelect=new Select(DayWeb);
-        DaySelect.selectByValue(DayValue);
+        elementMethods.SelectElementByValue(DayWeb,DayValue);
 
         WebElement PasswordWeb=driver.findElement(By.id("firstpassword"));
         String PasswordValue="Aprilie07";
