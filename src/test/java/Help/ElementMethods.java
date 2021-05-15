@@ -41,7 +41,7 @@ public class ElementMethods {
 
     public void SelectElementByValue(WebElement element,String Value){
         Select Select=new Select(element);
-        Select.selectByValue();
+        Select.selectByValue(Value);
 
     }
 }

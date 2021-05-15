@@ -52,8 +52,8 @@ public class AlertsTest extends BaseTest {
 
 
         AlertsOptions.get(2).click();
-        WebElement AlertTextBox= driver.findElement(By.xpath("//button[@onclick='promptbox()']"));
-        AlertTextBox.click();
+        WebElement AlertBox= driver.findElement(By.xpath("//button[@onclick='promptbox()']"));
+        AlertBox.click();
         alertMethods.AcceptFillAlert("Blablabla");
 
 
